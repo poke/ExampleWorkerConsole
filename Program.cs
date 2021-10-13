@@ -1,12 +1,19 @@
-﻿using System;
+﻿using System.Threading.Tasks;
+using Microsoft.Extensions.Hosting;
 
 namespace ExampleWorkerConsole
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var host = Host.CreateDefaultBuilder(args)
+                .ConfigureServices(services =>
+                {
+                })
+                .Build();
+
+            await host.RunAsync();
         }
     }
 }
